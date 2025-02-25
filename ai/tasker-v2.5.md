@@ -427,25 +427,34 @@ AI 在执行任务时，必须遵循项目规则文件(ai/project-rules.md)中�
 工作流通过任务文件进行有序流转，形成环状结构：
 
 ```mermaid
-graph LR
+graph TB
+    %% 节点样式定义
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style P fill:#bbf,stroke:#333,stroke-width:2px
     style E fill:#bfb,stroke:#333,stroke-width:2px
     style D fill:#fbf,stroke:#333,stroke-width:2px
+    style T fill:#eef,stroke:#333,stroke-width:1px
     
-    A((分析师)) --> |需求分析和文件清单| T[任务文件]
-    T --> |读取| P[规划员]
-    P --> |计划和策略| T
-    T --> |读取| E[执行员]
-    E --> |代码实现| T
-    T --> |读取| D[调试员]
-    D --> |优化和质量报告| T
-    T --> |读取| A
+    %% 主要角色节点
+    A((分析师)) -->|需求分析<br>文件清单| T[任务文件]
+    T -->|读取| P((规划员))
+    P -->|计划和策略| T
+    T -->|读取| E((执行员))
+    E -->|代码实现| T
+    T -->|读取| D((调试员))
+    D -->|优化和<br>质量报告| T
+    T -->|读取| A
+    
+    %% 环状连接
+    A -->|任务创建和审查| P
+    P -->|设计和计划| E
+    E -->|实现功能| D
+    D -->|测试和优化| A
     
     %% 返工路径
-    A -.- |需重新规划| P
-    A -.- |需修复问题| E
-    D -.- |需直接修复| E
+    A -.->|需重新规划| P
+    A -.->|需修复问题| E
+    D -.->|需直接修复| E
 ```
 
 每个角色的核心职责和输出：
