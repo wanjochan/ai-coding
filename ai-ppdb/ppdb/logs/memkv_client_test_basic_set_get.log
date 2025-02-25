@@ -1,0 +1,10 @@
+2025-02-09 14:04:55 [INFO] Connecting to memkv service on localhost:11211
+2025-02-09 14:04:55 [INFO] Connection established
+test_basic_set_get (__main__.TestMemKVBasic) ... 2025-02-09 14:04:55 [INFO] Setting up test - flushing all data
+2025-02-09 14:04:55 [INFO] Testing basic set/get...
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+OK

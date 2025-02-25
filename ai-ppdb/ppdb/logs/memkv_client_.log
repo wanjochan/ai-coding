@@ -1,0 +1,51 @@
+2025-02-09 14:17:33 [INFO] Connecting to memkv service on localhost:11211
+2025-02-09 14:17:33 [INFO] Connection established
+test_basic_set_get (__main__.TestMemKVBasic) ... 2025-02-09 14:17:33 [INFO] Setting up test - flushing all data
+2025-02-09 14:17:33 [INFO] Testing basic set/get...
+ok
+test_delete (__main__.TestMemKVBasic) ... 2025-02-09 14:17:33 [INFO] Setting up test - flushing all data
+2025-02-09 14:17:33 [INFO] Testing delete...
+2025-02-09 14:17:33 [DEBUG] Key not found as expected after deletion
+ok
+test_not_found (__main__.TestMemKVBasic) ... 2025-02-09 14:17:33 [INFO] Setting up test - flushing all data
+2025-02-09 14:17:33 [INFO] Testing non-existent keys...
+2025-02-09 14:17:33 [DEBUG] Key not found as expected
+ok
+2025-02-09 14:17:33 [INFO] Connecting to memkv service on localhost:11211
+2025-02-09 14:17:33 [INFO] Connection established
+test_expiration (__main__.TestMemKVProtocol) ... 2025-02-09 14:17:33 [INFO] Setting up test - flushing all data
+2025-02-09 14:17:33 [INFO] Testing expiration...
+2025-02-09 14:17:33 [DEBUG] Setting key='key1' value='value1' with 1s expiration
+2025-02-09 14:17:33 [DEBUG] Getting key immediately
+2025-02-09 14:17:33 [DEBUG] Got value: b'value1'
+2025-02-09 14:17:33 [DEBUG] Waiting for expiration (2s)
+2025-02-09 14:17:35 [DEBUG] Getting key after expiration
+2025-02-09 14:17:35 [DEBUG] Key not found as expected after expiration
+ok
+test_increment_decrement (__main__.TestMemKVProtocol) ... 2025-02-09 14:17:35 [INFO] Setting up test - flushing all data
+2025-02-09 14:17:35 [INFO] Testing increment/decrement...
+ok
+test_large_values (__main__.TestMemKVProtocol) ... 2025-02-09 14:17:35 [INFO] Setting up test - flushing all data
+2025-02-09 14:17:35 [INFO] Testing large values...
+ok
+test_multi_set_get (__main__.TestMemKVProtocol) ... 2025-02-09 14:17:35 [INFO] Setting up test - flushing all data
+2025-02-09 14:17:35 [INFO] Testing multiple set/get...
+2025-02-09 14:17:35 [DEBUG] Setting key='key1' value='value1'
+2025-02-09 14:17:35 [DEBUG] Set result: True
+2025-02-09 14:17:35 [DEBUG] Setting key='key2' value='value2'
+2025-02-09 14:17:35 [DEBUG] Set result: True
+2025-02-09 14:17:35 [DEBUG] Setting key='key3' value='value3'
+2025-02-09 14:17:35 [DEBUG] Set result: True
+2025-02-09 14:17:35 [DEBUG] Getting key='key1'
+2025-02-09 14:17:35 [DEBUG] Got value: b'value1'
+2025-02-09 14:17:35 [DEBUG] Getting key='key2'
+2025-02-09 14:17:35 [DEBUG] Got value: b'value2'
+2025-02-09 14:17:35 [DEBUG] Getting key='key3'
+2025-02-09 14:17:35 [DEBUG] Got value: b'value3'
+ok
+2025-02-09 14:17:35 [INFO] Closing connection
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.090s
+
+OK

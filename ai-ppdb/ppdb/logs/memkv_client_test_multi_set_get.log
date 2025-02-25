@@ -1,0 +1,23 @@
+2025-02-09 14:06:43 [INFO] Connecting to memkv service on localhost:11211
+2025-02-09 14:06:43 [INFO] Connection established
+test_multi_set_get (__main__.TestMemKVProtocol) ... 2025-02-09 14:06:43 [INFO] Setting up test - flushing all data
+2025-02-09 14:06:43 [INFO] Testing multiple set/get...
+2025-02-09 14:06:43 [DEBUG] Setting key='key1' value='value1'
+2025-02-09 14:06:43 [DEBUG] Set result: True
+2025-02-09 14:06:43 [DEBUG] Setting key='key2' value='value2'
+2025-02-09 14:06:43 [DEBUG] Set result: True
+2025-02-09 14:06:43 [DEBUG] Setting key='key3' value='value3'
+2025-02-09 14:06:43 [DEBUG] Set result: True
+2025-02-09 14:06:43 [DEBUG] Getting key='key1'
+2025-02-09 14:06:43 [DEBUG] Got value: b'value1'
+2025-02-09 14:06:43 [DEBUG] Getting key='key2'
+2025-02-09 14:06:43 [DEBUG] Got value: b'value2'
+2025-02-09 14:06:43 [DEBUG] Getting key='key3'
+2025-02-09 14:06:43 [DEBUG] Got value: b'value3'
+ok
+2025-02-09 14:06:43 [INFO] Closing connection
+
+----------------------------------------------------------------------
+Ran 1 test in 0.007s
+
+OK

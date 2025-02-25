@@ -1,0 +1,11 @@
+2025-02-09 14:05:08 [INFO] Connecting to memkv service on localhost:11211
+2025-02-09 14:05:08 [INFO] Connection established
+test_delete (__main__.TestMemKVBasic) ... 2025-02-09 14:05:08 [INFO] Setting up test - flushing all data
+2025-02-09 14:05:08 [INFO] Testing delete...
+2025-02-09 14:05:08 [DEBUG] Key not found as expected after deletion
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+OK

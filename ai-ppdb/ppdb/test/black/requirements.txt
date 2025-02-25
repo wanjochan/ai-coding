@@ -1,0 +1,2 @@
+python-memcached>=1.59 
+pymemcache>=4.0.0

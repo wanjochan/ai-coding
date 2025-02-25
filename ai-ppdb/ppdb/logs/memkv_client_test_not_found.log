@@ -1,0 +1,11 @@
+2025-02-09 14:05:23 [INFO] Connecting to memkv service on localhost:11211
+2025-02-09 14:05:23 [INFO] Connection established
+test_not_found (__main__.TestMemKVBasic) ... 2025-02-09 14:05:23 [INFO] Setting up test - flushing all data
+2025-02-09 14:05:23 [INFO] Testing non-existent keys...
+2025-02-09 14:05:23 [DEBUG] Key not found as expected
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+OK

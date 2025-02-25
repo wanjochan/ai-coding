@@ -1,0 +1,63 @@
+[2025-02-09 14:09:00] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:899 memkv_init(): Initializing MemKV service...
+[2025-02-09 14:09:00] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:933 memkv_init(): MemKV service initialized successfully
+[2025-02-09 14:09:00] DEBUG /Users/wjc/ai-ppdb/ppdb/src/ppdb/ppdb.c:669 parse_memkv_config(): Parsing config line: [127.0.0.1 11211 memkv  file::memory:?cache=shared]
+[2025-02-09 14:09:00] DEBUG /Users/wjc/ai-ppdb/ppdb/src/ppdb/ppdb.c:729 parse_memkv_config(): Parsed values - host:[127.0.0.1] port:[11211] type:[memkv] backend:[file::memory:?cache=shared]
+[2025-02-09 14:09:00] INFO /Users/wjc/ai-ppdb/ppdb/src/ppdb/ppdb.c:749 parse_memkv_config(): Added memkv service: 127.0.0.1:11211, backend: file::memory:?cache=shared
+[2025-02-09 14:09:00] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:1111 memkv_apply_config(): Applying configuration...
+[2025-02-09 14:09:00] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:1140 memkv_apply_config(): Applied configuration - host: 127.0.0.1, port: 11211, db_path: file::memory:?cache=shared
+[2025-02-09 14:09:00] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:997 memkv_start(): Adding listener on 127.0.0.1:11211
+[2025-02-09 14:09:00] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_poll.c:273 poly_poll_add_listener(): Added listener on 127.0.0.1:11211
+[2025-02-09 14:09:01] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_poll.c:324 poly_poll_start(): New connection from 127.0.0.1:56785 on socket 0
+[2025-02-09 14:09:01] WARN /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:828 handle_connection(): Failed to set TCP_KEEPIDLE
+[2025-02-09 14:09:01] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:107 db_init(): Opening database: file::memory:?cache=shared
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:282 sqlite_exec(): Executing SQL: CREATE TABLE IF NOT EXISTS kv_store (  key TEXT PRIMARY KEY,  value BLOB,  flags INTEGER,  expiry INTEGER);CREATE INDEX IF NOT EXISTS idx_expiry ON kv_store(expiry);
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:292 sqlite_exec(): SQL execution successful
+[2025-02-09 14:09:01] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:142 db_init(): Database connection established
+[2025-02-09 14:09:01] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:859 handle_connection(): New client connection from 127.0.0.1:56785
+[2025-02-09 14:09:01] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:600 handle_request(): Client 127.0.0.1:56785 closed connection
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:282 sqlite_exec(): Executing SQL: PRAGMA wal_checkpoint;
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:292 sqlite_exec(): SQL execution successful
+[2025-02-09 14:09:01] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_poll.c:324 poly_poll_start(): New connection from 127.0.0.1:56786 on socket 0
+[2025-02-09 14:09:01] WARN /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:828 handle_connection(): Failed to set TCP_KEEPIDLE
+[2025-02-09 14:09:01] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:107 db_init(): Opening database: file::memory:?cache=shared
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:282 sqlite_exec(): Executing SQL: CREATE TABLE IF NOT EXISTS kv_store (  key TEXT PRIMARY KEY,  value BLOB,  flags INTEGER,  expiry INTEGER);CREATE INDEX IF NOT EXISTS idx_expiry ON kv_store(expiry);
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:292 sqlite_exec(): SQL execution successful
+[2025-02-09 14:09:01] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:142 db_init(): Database connection established
+[2025-02-09 14:09:01] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:859 handle_connection(): New client connection from 127.0.0.1:56786
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:609 handle_request(): Received 67 bytes from 127.0.0.1:56786, total buffer size: 67
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:689 handle_request(): Processing command from 127.0.0.1:56786: flush_all, key: 0
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:282 sqlite_exec(): Executing SQL: DELETE FROM kv_store
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:292 sqlite_exec(): SQL execution successful
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:689 handle_request(): Processing command from 127.0.0.1:56786: set, key: counter
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:689 handle_request(): Processing command from 127.0.0.1:56786: incr, key: counter
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:1231 handle_incr_decr(): Handling INCR command for key='counter', value='1'
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:153 kv_get(): kv_get for key: [counter]
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:195 kv_get(): Got blob data: size=1
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:275 kv_get(): Successfully got key-value pair: [counter]=[0], flags=0, exptime=0
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:413 send_all(): Starting to send 3 bytes
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:419 send_all(): Send attempt 1: tried to send 3 bytes, sent 3 bytes, err=0
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:467 send_all(): Successfully sent 3/3 bytes
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:470 send_all(): Successfully sent all 3 bytes
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:609 handle_request(): Received 16 bytes from 127.0.0.1:56786, total buffer size: 16
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:689 handle_request(): Processing command from 127.0.0.1:56786: incr, key: counter
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:1231 handle_incr_decr(): Handling INCR command for key='counter', value='2'
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:153 kv_get(): kv_get for key: [counter]
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:195 kv_get(): Got blob data: size=1
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:275 kv_get(): Successfully got key-value pair: [counter]=[1], flags=0, exptime=1
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:413 send_all(): Starting to send 3 bytes
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:419 send_all(): Send attempt 1: tried to send 3 bytes, sent 3 bytes, err=0
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:467 send_all(): Successfully sent 3/3 bytes
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:470 send_all(): Successfully sent all 3 bytes
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:609 handle_request(): Received 16 bytes from 127.0.0.1:56786, total buffer size: 16
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:689 handle_request(): Processing command from 127.0.0.1:56786: decr, key: counter
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:1231 handle_incr_decr(): Handling DECR command for key='counter', value='1'
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:153 kv_get(): kv_get for key: [counter]
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:195 kv_get(): Got blob data: size=1
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:275 kv_get(): Successfully got key-value pair: [counter]=[3], flags=0, exptime=3
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:413 send_all(): Starting to send 3 bytes
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:419 send_all(): Send attempt 1: tried to send 3 bytes, sent 3 bytes, err=0
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:467 send_all(): Successfully sent 3/3 bytes
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:470 send_all(): Successfully sent all 3 bytes
+[2025-02-09 14:09:01] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:600 handle_request(): Client 127.0.0.1:56786 closed connection
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:282 sqlite_exec(): Executing SQL: PRAGMA wal_checkpoint;
+[2025-02-09 14:09:01] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:292 sqlite_exec(): SQL execution successful

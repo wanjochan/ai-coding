@@ -1,0 +1,11 @@
+2025-02-09 14:09:16 [INFO] Connecting to memkv service on localhost:11211
+2025-02-09 14:09:16 [INFO] Connection established
+test_large_values (__main__.TestMemKVProtocol) ... 2025-02-09 14:09:16 [INFO] Setting up test - flushing all data
+2025-02-09 14:09:16 [INFO] Testing large values...
+ok
+2025-02-09 14:09:16 [INFO] Closing connection
+
+----------------------------------------------------------------------
+Ran 1 test in 0.034s
+
+OK

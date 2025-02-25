@@ -1,0 +1,11 @@
+2025-02-09 14:09:01 [INFO] Connecting to memkv service on localhost:11211
+2025-02-09 14:09:01 [INFO] Connection established
+test_increment_decrement (__main__.TestMemKVProtocol) ... 2025-02-09 14:09:01 [INFO] Setting up test - flushing all data
+2025-02-09 14:09:01 [INFO] Testing increment/decrement...
+ok
+2025-02-09 14:09:01 [INFO] Closing connection
+
+----------------------------------------------------------------------
+Ran 1 test in 0.008s
+
+OK

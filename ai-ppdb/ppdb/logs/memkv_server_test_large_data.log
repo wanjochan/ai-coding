@@ -1,0 +1,19 @@
+[2025-02-09 12:05:25] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:967 memkv_init(): Initializing MemKV service...
+[2025-02-09 12:05:25] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:1001 memkv_init(): MemKV service initialized successfully
+[2025-02-09 12:05:25] DEBUG /Users/wjc/ai-ppdb/ppdb/src/ppdb/ppdb.c:669 parse_memkv_config(): Parsing config line: [127.0.0.1 11211 memkv  file::memory:?cache=shared]
+[2025-02-09 12:05:25] DEBUG /Users/wjc/ai-ppdb/ppdb/src/ppdb/ppdb.c:729 parse_memkv_config(): Parsed values - host:[127.0.0.1] port:[11211] type:[memkv] backend:[file::memory:?cache=shared]
+[2025-02-09 12:05:25] INFO /Users/wjc/ai-ppdb/ppdb/src/ppdb/ppdb.c:749 parse_memkv_config(): Added memkv service: 127.0.0.1:11211, backend: file::memory:?cache=shared
+[2025-02-09 12:05:25] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:1179 memkv_apply_config(): Applying configuration...
+[2025-02-09 12:05:25] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:1208 memkv_apply_config(): Applied configuration - host: 127.0.0.1, port: 11211, db_path: file::memory:?cache=shared
+[2025-02-09 12:05:25] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:1065 memkv_start(): Adding listener on 127.0.0.1:11211
+[2025-02-09 12:05:25] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_poll.c:273 poly_poll_add_listener(): Added listener on 127.0.0.1:11211
+[2025-02-09 12:05:26] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_poll.c:324 poly_poll_start(): New connection from 127.0.0.1:52519 on socket 0
+[2025-02-09 12:05:26] WARN /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:892 handle_connection(): Failed to set TCP_KEEPIDLE
+[2025-02-09 12:05:26] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:108 db_init(): Opening database: file::memory:?cache=shared
+[2025-02-09 12:05:26] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:282 sqlite_exec(): Executing SQL: CREATE TABLE IF NOT EXISTS kv_store (  key TEXT PRIMARY KEY,  value BLOB,  flags INTEGER,  expiry INTEGER);CREATE INDEX IF NOT EXISTS idx_expiry ON kv_store(expiry);
+[2025-02-09 12:05:26] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:292 sqlite_exec(): SQL execution successful
+[2025-02-09 12:05:26] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:143 db_init(): Database connection established
+[2025-02-09 12:05:26] INFO /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:924 handle_connection(): New client connection from 127.0.0.1:52519
+[2025-02-09 12:05:26] ERROR /Users/wjc/ai-ppdb/ppdb/src/internal/peer/peer_memkv.c:618 handle_request(): Failed to receive data from 127.0.0.1:52519: -7
+[2025-02-09 12:05:26] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:282 sqlite_exec(): Executing SQL: PRAGMA wal_checkpoint;
+[2025-02-09 12:05:26] DEBUG /Users/wjc/ai-ppdb/ppdb/src/internal/poly/poly_db.c:292 sqlite_exec(): SQL execution successful

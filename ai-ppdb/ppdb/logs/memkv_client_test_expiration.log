@@ -1,0 +1,17 @@
+2025-02-09 14:07:06 [INFO] Connecting to memkv service on localhost:11211
+2025-02-09 14:07:06 [INFO] Connection established
+test_expiration (__main__.TestMemKVProtocol) ... 2025-02-09 14:07:06 [INFO] Setting up test - flushing all data
+2025-02-09 14:07:06 [INFO] Testing expiration...
+2025-02-09 14:07:06 [DEBUG] Setting key='key1' value='value1' with 1s expiration
+2025-02-09 14:07:06 [DEBUG] Getting key immediately
+2025-02-09 14:07:06 [DEBUG] Got value: b'value1'
+2025-02-09 14:07:06 [DEBUG] Waiting for expiration (2s)
+2025-02-09 14:07:08 [DEBUG] Getting key after expiration
+2025-02-09 14:07:08 [DEBUG] Key not found as expected after expiration
+ok
+2025-02-09 14:07:08 [INFO] Closing connection
+
+----------------------------------------------------------------------
+Ran 1 test in 2.015s
+
+OK
