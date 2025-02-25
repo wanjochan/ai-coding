@@ -15,33 +15,36 @@
 
 ```mermaid
 graph TB
-    %% 节点样式定义
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style P fill:#bbf,stroke:#333,stroke-width:2px
-    style E fill:#bfb,stroke:#333,stroke-width:2px
-    style D fill:#fbf,stroke:#333,stroke-width:2px
-    style T fill:#eef,stroke:#333,stroke-width:1px
+    %% 节点定义
+    T[任务文件]
+    A((分析师))
+    P((规划员))
+    E((执行员))
+    D((调试员))
     
-    %% 主要角色节点
-    A((分析师)) -->|需求分析<br>文件清单| T[任务文件]
-    T -->|读取| P((规划员))
-    P -->|计划和策略| T
-    T -->|读取| E((执行员))
-    E -->|代码实现| T
-    T -->|读取| D((调试员))
-    D -->|优化和<br>质量报告| T
-    T -->|读取| A
-    
-    %% 环状连接
+    %% 环状连接 - 主要工作流
     A -->|任务创建和审查| P
     P -->|设计和计划| E
     E -->|实现功能| D
     D -->|测试和优化| A
     
+    %% 与任务文件的交互 - 简化为双向箭头
+    A <-->|需求分析/读取| T
+    P <-->|计划策略/读取| T
+    E <-->|代码实现/读取| T
+    D <-->|优化报告/读取| T
+    
     %% 返工路径
     A -.->|需重新规划| P
     A -.->|需修复问题| E
     D -.->|需直接修复| E
+    
+    %% 节点样式
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style P fill:#bbf,stroke:#333,stroke-width:2px
+    style E fill:#bfb,stroke:#333,stroke-width:2px
+    style D fill:#fbf,stroke:#333,stroke-width:2px
+    style T fill:#eef,stroke:#333,stroke-width:1px
 ```
 
 每个角色的核心职责和输出：
