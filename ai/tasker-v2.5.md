@@ -1,7 +1,7 @@
 # 通用 AI 工作流程 V2.5
 
 - 本文档描述了一个基于本地文件系统的 AI辅助项目管理和执行的工作流程；
-- 本工作流程适用于 Cursor、Windsur 等 AI助理 (IDE+LLM)，具有一定的通用性；
+- 本工作流程适用于 Cursor、Windsur 等 AI助理 (IDE+LLM，单个或组合)，具有一定的灵活性和通用性；
 - 本流程需要结合项目规则文档 (ai/project-rules.md) 使用，所有角色在工作前都要阅读一次该项目规范文档，特别是执行员；
 - 与用户对话或自己思考要用中文，保持简洁（concise）和准确（precise）；
 - 因为 AI 助手一般来说有上下文长度限制，所以
@@ -14,7 +14,7 @@
 工作流通过任务文件进行有序流转，形成环状结构：
 
 ```mermaid
-graph TB
+graph TD
     %% 节点定义
     T[任务文件]
     A((分析师))
@@ -22,29 +22,38 @@ graph TB
     E((执行员))
     D((调试员))
     
-    %% 环状连接 - 主要工作流
+    %% 布局定义
+    subgraph flow[工作流环]
+        direction TB
+        A --- P --- E --- D --- A
+    end
+    
+    %% 主要工作流连接
     A -->|任务创建和审查| P
     P -->|设计和计划| E
     E -->|实现功能| D
     D -->|测试和优化| A
     
-    %% 与任务文件的交互 - 简化为双向箭头
-    A <-->|需求分析/读取| T
-    P <-->|计划策略/读取| T
-    E <-->|代码实现/读取| T
-    D <-->|优化报告/读取| T
+    %% 与中心任务文件的交互
+    T <-.->|需求分析/读取| A
+    T <-.->|计划策略/读取| P
+    T <-.->|代码实现/读取| E
+    T <-.->|优化报告/读取| D
     
     %% 返工路径
-    A -.->|需重新规划| P
-    A -.->|需修复问题| E
-    D -.->|需直接修复| E
+    A -..->|需重新规划| P
+    A -..->|需修复问题| E
+    D -..->|需直接修复| E
     
     %% 节点样式
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style P fill:#bbf,stroke:#333,stroke-width:2px
     style E fill:#bfb,stroke:#333,stroke-width:2px
     style D fill:#fbf,stroke:#333,stroke-width:2px
-    style T fill:#eef,stroke:#333,stroke-width:1px
+    style T fill:#eef,stroke:#333,stroke-width:2px
+    
+    %% 中心任务文件位置
+    T
 ```
 
 每个角色的核心职责和输出：
