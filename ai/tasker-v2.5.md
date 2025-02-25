@@ -11,49 +11,84 @@
 
 ## 数据流
 
-工作流通过任务文件进行有序流转，形成环状结构：
+工作流通过任务文件进行有序流转：
+
+序列图 A
 
 ```mermaid
-graph TD
-    %% 节点定义
-    T[任务文件]
-    A((分析师))
-    P((规划员))
-    E((执行员))
-    D((调试员))
-    
-    %% 布局定义
-    subgraph flow[工作流环]
-        direction TB
-        A --- P --- E --- D --- A
+sequenceDiagram
+    box 环状工作流
+    participant A as 分析师
+    participant P as 规划员
+    participant E as 执行员
+    participant D as 调试员
     end
     
-    %% 主要工作流连接
-    A -->|任务创建和审查| P
-    P -->|设计和计划| E
-    E -->|实现功能| D
-    D -->|测试和优化| A
+    participant TF as [任务文件]
     
-    %% 与中心任务文件的交互
-    T <-.->|需求分析/读取| A
-    T <-.->|计划策略/读取| P
-    T <-.->|代码实现/读取| E
-    T <-.->|优化报告/读取| D
+    Note over A,D: 主要工作流
+    
+    A->>TF: 写入：任务创建和需求分析
+    A->>P: 交接：移交任务和需求
+    P->>TF: 写入：设计方案和实施计划
+    P->>E: 交接：移交执行计划
+    E->>TF: 写入：代码实现和变更记录
+    E->>D: 交接：移交测试任务
+    D->>TF: 写入：测试报告和优化建议
+    D->>A: 交接：移交审查任务
+    
+    A-->>TF: 读取：查看测试报告
+    A-->>P: 返工：需重新规划
+    A-->>E: 返工：需修复问题
+    D-->>E: 返工：需直接修复
+    
+    Note over TF: 任务文件不是角色<br/>而是工作成果的存储媒介
+```
+
+序列图 B
+```mermaid
+sequenceDiagram
+    box 环状工作流
+    participant A as 分析师
+    participant P as 规划员
+    participant E as 执行员
+    participant D as 调试员
+    end
+    
+    participant TF as [任务文件]
+    
+    Note over A,D: 主要工作流
+    
+    %% 分析师阶段
+    A-->>TF: 读取：查看任务状态
+    A->>TF: 写入：任务创建和需求分析
+    A->>P: 交接：移交任务和需求
+    
+    %% 规划员阶段
+    P-->>TF: 读取：分析需求文档
+    P->>TF: 写入：设计方案和实施计划
+    P->>E: 交接：移交执行计划
+    
+    %% 执行员阶段
+    E-->>TF: 读取：获取任务计划
+    E->>TF: 写入：代码实现和变更记录
+    E->>D: 交接：移交测试任务
+    
+    %% 调试员阶段
+    D-->>TF: 读取：审查代码实现
+    D->>TF: 写入：测试报告和优化建议
+    D->>A: 交接：移交审查任务
+    
+    %% 完成环状循环 - 分析师审查
+    A-->>TF: 读取：查看测试报告
     
     %% 返工路径
-    A -..->|需重新规划| P
-    A -..->|需修复问题| E
-    D -..->|需直接修复| E
+    Note over A,E: 返工路径（未达标准或发现问题）
+    A-->>P: 返工：需重新规划
+    A-->>E: 返工：需修复问题
+    D-->>E: 返工：需直接修复
     
-    %% 节点样式
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style P fill:#bbf,stroke:#333,stroke-width:2px
-    style E fill:#bfb,stroke:#333,stroke-width:2px
-    style D fill:#fbf,stroke:#333,stroke-width:2px
-    style T fill:#eef,stroke:#333,stroke-width:2px
-    
-    %% 中心任务文件位置
-    T
+    Note over TF: 任务文件是中心枢纽<br/>存储工作成果并实现角色间信息传递
 ```
 
 每个角色的核心职责和输出：
